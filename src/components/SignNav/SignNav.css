@@ -1,0 +1,29 @@
+.sign-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.sign-nav__text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin: 0;
+  color: #8b8b8b;
+}
+
+.sign-nav__link {
+  text-decoration: none;
+  color: #4285f4;
+
+  margin-left: 6px;
+}
+
+@media screen and (max-width: 520px) {
+  .sign-nav__text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
