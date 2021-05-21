@@ -1,0 +1,59 @@
+.sign-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 21px 70px;
+  font-size: 12px;
+}
+
+.sign-btn__signup {
+  font-family: "Inter", "Arial", sans-serif;
+  display: flex;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sign-btn__signup:hover {
+  transition: ease 0.3s;
+  opacity: 0.6;
+}
+
+.sign-btn__signin {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 32px;
+  display: flex;
+  background-color: #3ddc84;
+  border-radius: 3px;
+  color: #000000;
+
+  margin-left: 30px;
+}
+
+.sign-btn__signin:hover {
+  transition: ease 0.3s;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 1023px) {
+  .sign-btn {
+    margin: 21px 70px 21px 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sign-btn {
+    font-size: 10px;
+    margin: 24px 14px;
+  }
+}

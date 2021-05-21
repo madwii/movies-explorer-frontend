@@ -1,0 +1,178 @@
+.navigation {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation__box {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation__link {
+  height: 30px;
+  margin: 0 auto;
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: none;
+  text-align: center;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.navigation__link:hover {
+  opacity: 0.6;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+
+.navigation__link:first-of-type {
+  margin-left: 0;
+}
+
+.navigation__link-profile {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  align-items: center;
+  display: flex;
+  margin: 21px 70px 23px 50px;
+  height: 30px;
+}
+
+.navigation__link-profile:hover {
+  opacity: 0.6;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+
+.navigation__user-img {
+  margin-left: 17px;
+  width: 26px;
+  height: 30px;
+  display: inline-block;
+  background-image: url("../../images/user.svg");
+  border-radius: 4px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #313131;
+}
+
+.navigation__overlay {
+  background-color: #000000;
+  opacity: 0.3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.navigation__burger {
+  box-sizing: border-box;
+  margin: 15px 30px;
+  width: 44px;
+  height: 44px;
+}
+
+.navigation__burger:hover {
+  opacity: 0.6;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+
+.navigation__popup {
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(100%, 520px);
+  height: 100%;
+  background-color: #202020;
+  padding: 144px 10px 48px;
+  box-sizing: border-box;
+}
+
+.navigation__close {
+  background: transparent url("../../images/close.svg") center no-repeat;
+  border: none;
+  background-size: 22px 22px cover;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 22px;
+  height: 22px;
+}
+
+.navigation__close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.navigation__link_actual {
+  border-bottom: 2px solid #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  .navigation__link {
+    margin-bottom: 28px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    line-height: 21, 78px;
+  }
+  .navigation__link:first-of-type {
+    margin: auto;
+    margin-bottom: 28px;
+  }
+
+  .navigation__link-profile {
+    margin-bottom: 44;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+  }
+
+  @media screen and (max-width: 425px) {
+    .navigation__burger {
+      margin: 15px 14px;
+      width: 40px;
+      height: 43px;
+    }
+
+    .navigation__box {
+      margin-top: 0;
+    }
+
+    .navigation__link {
+      margin-bottom: 24px;
+    }
+
+    .navigation__link:first-of-type {
+      margin: auto;
+      margin-bottom: 24px;
+    }
+
+    .navigation__link-profile {
+      margin-bottom: 0;
+    }
+  }
+}
