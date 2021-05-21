@@ -18,7 +18,7 @@
   }
 
   @media screen and (max-width: 768px) {
-    .auth-header {
+    .form-header {
       margin-top: 232px;
       margin-bottom: 40px;
     }

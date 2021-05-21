@@ -1,24 +1,30 @@
 import './FormInput.css';
 
 function FormInput({  label,
-    type,
-    value,
-    onChange,
-    name,
-    errors,
-    placeholder,}) {
+  name,
+  type,
+  minLength,
+  maxLength,
+  onChange,
+  value,
+  errorText,
+}) {
     return (
         <label className='input__info'>
         {label}
         <input
-          className={`input__name ${errors ? 'input__name__error' : ''}`}
-          type={type}
-          value={value}
-          onChange={onChange}
+          className={`input__name ${errorText && 'input__name_error'}`}
           name={name}
-          placeholder={placeholder}
+          type={type}
+          minLength={minLength}
+          maxLength={maxLength}
+          onChange={onChange}
+          value={value}
+          required
         />
-        {errors && <p className='input__error'>{errors}</p>}
+        <span className={`input__error ${errorText && 'input__error_visible'}`}>
+        {errorText}
+      </span>
       </label>
     )
 }

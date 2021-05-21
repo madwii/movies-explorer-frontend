@@ -1,67 +1,60 @@
 import "./Login.css";
 import FormHeader from "../FormHeader/FormHeader";
 import FormInput from "../FormInput/FormInput";
-import SubmitBtn from "../SubmitBtn/SubmitBtn"
-import SignNav from '../SignNav/SignNav';
-import { useState } from 'react';
-import { useHistory } from "react-router";
+import AuthForm from '../AuthForm/AuthForm'
 
-function Login({ onSignIn, initialValues }) {
+import useFormWithValidation from '../../utils/useFormValidation'
 
-  const history = useHistory();
-  const handleSignIn = () => {
-    onSignIn();
-    history.push("/");
-  };
+function Login({ onSubmitLogin }) {
 
-    const [values, setValues] = useState(initialValues);
-    const [tap, setTap] = useState({});
-  
-    function handleChange(e) {
-      const { name, value } = e.target;
-      setValues({
-        ...values,
-        [name]: value,
-      });
-      setTap({
-        ...tap,
-        [name]: true,
-      });
-    }
+  const {
+    values,
+    errors,
+    isValid,
+    handleChange,
+    resetForm,
+  } = useFormWithValidation({})
+
+  function handleOnSubmit(evt) {
+    evt.preventDefault()
+    onSubmitLogin(values)
+    resetForm()
+  }
 
   return (
     <section className="login">
       <FormHeader text="Рады видеть!" />
-      <form className="login__form">
+      <AuthForm
+      name="login"
+      submitBtnText="Войти" 
+      linkSubmitText="Еще зарегистрированы?"
+      isSubmitDisabled={isValid}
+      link="/signup"
+      linkText="Регистрация"
+      handleOnSubmit={handleOnSubmit}
+      >
+
         <FormInput
           label="E-mail"
           name="email"
           type="email"
-          minLength="2"
+          minLength="4"
           maxLength="40"
-          value={values.email}
           onChange={handleChange}
-          placeholder="name@mail.com"
+          value={values.email || ''}
+          errorText={errors.email}
         />
         <FormInput
           label="Пароль"
           name="password"
           type="password"
-          minLength="2"
-          maxLength="200"
-          value={values.password}
+          minLength="4"
+          maxLength="40"
+          errorText={errors.password}
           onChange={handleChange}
-          placeholder=""
+          value={values.password || ''}
         />
-        <div className="login__navigation">
-        <SubmitBtn text="Войти" onSubmit={handleSignIn} />
-        <SignNav
-        text='Ещё не зарегистрированы?'
-        link='Регистрация'
-        to='/signup'
-      />
-      </div>
-      </form>
+      </AuthForm>
     </section>
   );
 }

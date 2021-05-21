@@ -66,13 +66,24 @@
   margin: 0;
 }
 
-/* .profile__error {
+.profile__input-error {
     font-style: normal;
     font-weight: normal;
     font-size: 10px;
     line-height: 12px;
     color: #ee3465;
-  } */
+    text-align: center;
+    padding: 0;
+    padding-bottom: 3px;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .profile__input-error_visible {
+    opacity: 1;
+    visibility: visible;
+  }
 
 .profile__buttons {
   display: flex;
@@ -93,6 +104,12 @@
   border: none;
   background-color: transparent;
   padding-bottom: 16px;
+}
+
+.profile__button_disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .profile__button:last-of-type {
