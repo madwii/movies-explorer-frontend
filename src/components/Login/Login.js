@@ -1,39 +1,32 @@
 import "./Login.css";
 import FormHeader from "../FormHeader/FormHeader";
 import FormInput from "../FormInput/FormInput";
-import AuthForm from '../AuthForm/AuthForm'
+import AuthForm from "../AuthForm/AuthForm";
 
-import useFormWithValidation from '../../utils/useFormValidation'
+import useFormWithValidation from "../../hook/useFormValidation";
 
-function Login({ onSubmitLogin }) {
-
-  const {
-    values,
-    errors,
-    isValid,
-    handleChange,
-    resetForm,
-  } = useFormWithValidation({})
+function Login({ onLogin }) {
+  const { values, errors, isValid, handleChange, resetForm } =
+    useFormWithValidation({});
 
   function handleOnSubmit(evt) {
-    evt.preventDefault()
-    onSubmitLogin(values)
-    resetForm()
+    evt.preventDefault();
+    onLogin(values);
+    resetForm();
   }
 
   return (
     <section className="login">
       <FormHeader text="Рады видеть!" />
       <AuthForm
-      name="login"
-      submitBtnText="Войти" 
-      linkSubmitText="Еще зарегистрированы?"
-      isSubmitDisabled={isValid}
-      link="/signup"
-      linkText="Регистрация"
-      handleOnSubmit={handleOnSubmit}
+        name="login"
+        submitBtnText="Войти"
+        linkSubmitText="Еще зарегистрированы?"
+        isSubmitDisabled={isValid}
+        link="/signup"
+        linkText="Регистрация"
+        handleOnSubmit={handleOnSubmit}
       >
-
         <FormInput
           label="E-mail"
           name="email"
@@ -41,7 +34,7 @@ function Login({ onSubmitLogin }) {
           minLength="4"
           maxLength="40"
           onChange={handleChange}
-          value={values.email || ''}
+          value={values.email || ""}
           errorText={errors.email}
         />
         <FormInput
@@ -52,7 +45,7 @@ function Login({ onSubmitLogin }) {
           maxLength="40"
           errorText={errors.password}
           onChange={handleChange}
-          value={values.password || ''}
+          value={values.password || ""}
         />
       </AuthForm>
     </section>

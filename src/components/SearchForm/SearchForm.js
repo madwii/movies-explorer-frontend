@@ -1,40 +1,38 @@
 import "./SearchForm.css";
 import searchIcon from "../../images/search-icon.svg";
-import { useState } from "react";
+import React, { useState } from "react";
+import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
-function SearchForm({ search, inputValueString }) {
+function SearchForm({
+  onSubmitSearch,
+  onFilterShort,
+  query,
+  setQuery,
+  isLoading,
+}) {
   const [error, setError] = useState();
-  const [shortFilms, setShortFilms] = useState(false);
-  const [inputValue, setInputValue] = useState(inputValueString);
 
-  function clearError() {
-    setError(null);
-  }
-
-  function handleSwitch(e) {
-    setShortFilms(!shortFilms);
-  }
-
-  function handleSearch(e) {
-    clearError();
-
+  const handleSearchFormSubmit = (e) => {
     e.preventDefault();
-    if (!inputValue) {
-      setError("Введите название");
-    } else if (inputValue.length < 2) {
-      setError("Необходимо ввести больше двух букв");
-    } else {
-      search(inputValue, shortFilms); //build in progress
+    if (!error) {
+      onSubmitSearch();
     }
+  };
+
+  function handleOnChange(e) {
+    setQuery(e.target.value);
   }
 
-  function handleChange(e) {
-    clearError();
-    setInputValue(e.target.value);
-  }
+  const handleSearchClick = (e) => {
+    if (!query.length) {
+      setError(true);
+    } else {
+      setError(false);
+    }
+  };
 
   return (
-    <form className="search-form">
+    <form className="search-form" onSubmit={handleSearchFormSubmit} action="#">
       <fieldset className="search-form__search">
         <img
           src={searchIcon}
@@ -44,30 +42,28 @@ function SearchForm({ search, inputValueString }) {
         <input
           className="search-form__input"
           placeholder="Фильм"
-          type="search"
-          value={inputValue || ""}
-          onChange={handleChange}
+          type="text"
+          value={query}
+          autoComplete="off"
+          disabled={isLoading}
+          onChange={handleOnChange}
         />
 
         <button
           type="submit"
+          disabled={isLoading}
           className="search-form__button"
-          onClick={handleSearch}
+          onClick={handleSearchClick}
         >
           Найти
         </button>
       </fieldset>
-      {error && <p className="search-form__error">{error}</p>}
+
+      <span className="search-form__error">
+        {error ? "Нужно ввести ключевое слово" : ""}
+      </span>
       <hr className="search-form__line" />
-      <label className="switch">
-        <input className="switch__default" type="checkbox" />
-        <span
-          className="switch__slider"
-          onChange={handleSwitch}
-          checked={shortFilms || false}
-        />
-        <span className="switch__label">Короткометражки</span>
-      </label>
+      <FilterCheckbox onFilter={onFilterShort} />
     </form>
   );
 }

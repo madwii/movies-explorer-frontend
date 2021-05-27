@@ -8,6 +8,22 @@
     margin: 0;
     padding: 70px 0 0;
   }
+
+  .movies-cards__more {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    border: none;
+    width: 100%;
+    margin-top: 80px;
+    padding: 10px 0;
+    color: #FFFFFF;
+    background: #2F2F2F;
+    border-radius: 6px;
+
+    cursor: pointer;
+  }
   
   @media screen and (max-width: 768px) {
     .movies-cards {

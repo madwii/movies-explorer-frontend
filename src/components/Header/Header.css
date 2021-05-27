@@ -22,6 +22,14 @@
     width: 38px;
     height: 38px;
   }
+
+  .header__auth_hidden {
+    display: none;
+  }
+
+  .header__cover_hidden {
+    display: none;
+  }
   
   @media screen and (max-width: 1023px) {
     .header__logo-link {
