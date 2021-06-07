@@ -11,7 +11,7 @@
     padding: 14px 14px 0 14px;
     flex-direction: row;
     justify-content: space-between;
-  }
+  }    
   
   .movies-card__title {
     font-weight: 500;
