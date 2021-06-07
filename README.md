@@ -1,5 +1,14 @@
-# movies-explorer-api
+# Проект movies-explorer
 Репозиторий для приложения проекта `Movies-explorer`, включающий фронтенд части приложения.
+
+### Применяемые технологии
+- React с применением функциональных компонентов и хуков, защищенных роутов
+- БЭМ
+- Адаптивная вёрстка
+
+### Инструкция по развертыванию проекта
+* Клонировать репозиторий командой: git clone https://github.com/madwii/movies-explorer-frontend.git
+* Установить зависимости: npm install Запустить сборку на локальном сервере: npm start
 
 ## [movie.kor](https://movie.kor.nomoredomains.icu) — frontend
 ## 84.252.139.215 — Публичный IP-адрес
