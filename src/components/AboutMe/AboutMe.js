@@ -1,6 +1,6 @@
 import "./AboutMe.css";
 import Title from "../Title/Title";
-import photo from "../../images/photo.svg";
+import photo from "../../images/svg-editor-image.svg";
 
 function AboutMe() {
   return (
@@ -9,13 +9,11 @@ function AboutMe() {
       <div className="about-me__box">
         <img className="about-me__photo" src={photo} alt="student" />
         <div className="aboute-me__text-box">
-          <h2 className="about-me__title">Виталий</h2>
-          <p className="about-me__caption">Фронтенд-разработчик, 30 лет</p>
+          <h2 className="about-me__title">Григорий</h2>
+          <p className="about-me__caption">Фронтенд-разработчик, 24 года</p>
           <p className="about-me__text">
-            Я родился и живу в Саратове, закончил факультет экономики СГУ. У
-            меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь
-            бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ
-            Контур». После того, как прошёл курс по веб-разработке, начал
+            Я родился и живу в Москве, закончил факультет АТ МАДИ. Я люблю чтение, а ещё увлекаюсь
+            активным отдыхом. Недавно начал кодить. С 2019 года работал в компании "ИнтерСтрой". После того, как прошёл курс по веб-разработке, начал
             заниматься фриланс-заказами и ушёл с постоянной работы.
           </p>
           <div className="aboute-me__links">

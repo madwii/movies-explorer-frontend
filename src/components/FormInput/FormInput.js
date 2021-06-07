@@ -8,6 +8,7 @@ function FormInput({  label,
   onChange,
   value,
   errorText,
+  pattern,
 }) {
     return (
         <label className='input__info'>
@@ -20,6 +21,7 @@ function FormInput({  label,
           maxLength={maxLength}
           onChange={onChange}
           value={value}
+          pattern={pattern}
           required
         />
         <span className={`input__error ${errorText && 'input__error_visible'}`}>

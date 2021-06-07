@@ -12,12 +12,7 @@ function AuthForm({
   ...props
 }) {
   return (
-    <form
-      className="form"
-      name={name}
-      onSubmit={handleOnSubmit}
-      noValidate
-    >
+    <form className="form" name={name} onSubmit={handleOnSubmit} noValidate>
       {props.children}
       <div className="form__navigation">
         <button

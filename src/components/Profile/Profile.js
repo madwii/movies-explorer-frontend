@@ -1,21 +1,19 @@
 import "./Profile.css";
 import React from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import useFormWithValidation from "../../utils/useFormValidation";
+import useFormWithValidation from "../../hook/useFormValidation";
 
-function Profile({ handleUpdate, onSignOut }) {
+function Profile({ onUpdateProfile, onSignOut }) {
   const user = React.useContext(CurrentUserContext);
 
-  const { values, errors, isValid, handleChange } =
-    useFormWithValidation({});
-
-  function handleSignOut() {
-    onSignOut();
-  }
+  const { values, errors, isValid, handleChange } = useFormWithValidation({});
 
   function handleOnSubmit(evt) {
     evt.preventDefault();
-    handleUpdate(values);
+    onUpdateProfile({
+      name: values.name || user.name,
+      email: values.email || user.email,
+    });
   }
 
   return (
@@ -33,9 +31,8 @@ function Profile({ handleUpdate, onSignOut }) {
             className="profile__input"
             type="text"
             name="name"
-            placeholder={user.name}
             id="profile-name"
-            value={values.name}
+            defaultValue={user.name}
             onChange={handleChange}
             required
             pattern="[A-Za-zА-Яа-яЁё -]{2,30}" /*Любая буква русского и латинского алфавита. От 2 до 3 символов */
@@ -52,16 +49,15 @@ function Profile({ handleUpdate, onSignOut }) {
         <hr className="profile__line" />
 
         <article className="profile__fieldset">
-          <label cclassName="profile__label">Почта</label>
+          <label className="profile__label">Почта</label>
           <input
             className="profile__input"
             id="profile-email"
             type="email"
             name="email"
-            placeholder={user.email}
             minLength="4"
             maxLength="40"
-            value={values.email}
+            defaultValue={user.email}
             onChange={handleChange}
             required
           />
@@ -86,7 +82,7 @@ function Profile({ handleUpdate, onSignOut }) {
           </button>
           <button
             className="profile__button profile__button_logout"
-            onClick={handleSignOut}
+            onClick={onSignOut}
           >
             Выйти из аккаунта
           </button>

@@ -3,15 +3,15 @@ import FormHeader from "../FormHeader/FormHeader";
 import FormInput from "../FormInput/FormInput";
 import AuthForm from "../AuthForm/AuthForm";
 
-import useFormWithValidation from "../../utils/useFormValidation";
+import useFormWithValidation from "../../hook/useFormValidation";
 
-function Register({ onSubmitRegister }) {
+function Register({ onRegister }) {
   const { values, errors, isValid, handleChange, resetForm } =
     useFormWithValidation({});
 
   function handleOnSubmit(evt) {
     evt.preventDefault();
-    onSubmitRegister(values);
+    onRegister(values);
     resetForm();
   }
 
@@ -24,7 +24,7 @@ function Register({ onSubmitRegister }) {
         linkSubmitText="Уже зарегистрированы?"
         isSubmitDisabled={isValid}
         link="/signin"
-        linkText="Регистрация"
+        linkText="Войти"
         handleOnSubmit={handleOnSubmit}
       >
         <FormInput
@@ -36,6 +36,7 @@ function Register({ onSubmitRegister }) {
           maxLength="30"
           onChange={handleChange}
           value={values.name || ""}
+          pattern="[A-Za-zА-Яа-яЁё -]{2,30}"
         />
         <FormInput
           label="E-mail"

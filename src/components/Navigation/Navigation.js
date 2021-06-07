@@ -64,9 +64,11 @@ function Navigation() {
                 <div className="navigation__close" onClick={closePopup} />
                 <div className="navigation__box">
                   <NavLink
+                    exact
                     to="/"
                     className="navigation__link"
                     activeClassName="navigation__link_actual"
+                    onClick={closePopup}
                   >
                     Главная
                   </NavLink>
@@ -74,6 +76,7 @@ function Navigation() {
                     to="/movies"
                     className="navigation__link"
                     activeClassName="navigation__link_actual"
+                    onClick={closePopup}
                   >
                     Фильмы
                   </NavLink>
@@ -81,11 +84,16 @@ function Navigation() {
                     to="/saved-movies"
                     className="navigation__link"
                     activeClassName="navigation__link_actual"
+                    onClick={closePopup}
                   >
                     Сохраненные фильмы
                   </NavLink>
                 </div>
-                <NavLink to="/profile" className="navigation__link-profile">
+                <NavLink
+                  to="/profile"
+                  className="navigation__link-profile"
+                  onClick={closePopup}
+                >
                   Аккаунт
                   <div className="navigation__user-img" />
                 </NavLink>
